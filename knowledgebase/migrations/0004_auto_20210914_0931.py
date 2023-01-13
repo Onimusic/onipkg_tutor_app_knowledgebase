@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import tutor.apps.contrib.validators
+import contrib.validators
 
 
 class Migration(migrations.Migration):
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created At')),
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
                 ('slug', models.CharField(blank=True, help_text='Este campo é usado pra criar a url do post.', max_length=250, null=True, unique=True, verbose_name='Slug')),
-                ('featured_image', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='posts/covers/', validators=[tutor.apps.contrib.validators.validate_image_format, tutor.apps.contrib.validators.validate_image_max_300], verbose_name='Imagem Destaque')),
+                ('featured_image', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='posts/covers/', validators=[contrib.validators.validate_image_format, contrib.validators.validate_image_max_300], verbose_name='Imagem Destaque')),
                 ('title', models.CharField(max_length=250, verbose_name='Título')),
                 ('description', models.TextField(verbose_name='Descrição')),
                 ('youtube_embedded', models.CharField(blank=True, help_text='ID do vídeo do Youtube a ser embedado', max_length=100, null=True, verbose_name='ID do Vídeo do Youtube ')),

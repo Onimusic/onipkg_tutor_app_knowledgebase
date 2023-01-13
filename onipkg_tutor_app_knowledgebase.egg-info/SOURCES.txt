@@ -1,7 +1,6 @@
 LICENSE
 MANIFEST.in
 README.rst
-pyproject.toml
 setup.cfg
 setup.py
 docs/.keep
@@ -11,6 +10,10 @@ knowledgebase/apps.py
 knowledgebase/tests.py
 knowledgebase/urls.py
 knowledgebase/views.py
+knowledgebase/api/__init__.py
+knowledgebase/api/routes.py
+knowledgebase/api/serializers.py
+knowledgebase/api/views.py
 knowledgebase/migrations/0001_initial.py
 knowledgebase/migrations/0002_course_coursesection_lecture_sectionfile_sectionvideo.py
 knowledgebase/migrations/0003_auto_20210914_0836.py
@@ -28,7 +31,9 @@ knowledgebase/migrations/__init__.py
 knowledgebase/models/__init__.py
 knowledgebase/models/base.py
 knowledgebase/utils/__init__.py
+knowledgebase/utils/api_helpers.py
 knowledgebase/utils/cons.py
+knowledgebase/utils/permissions.py
 onipkg_tutor_app_knowledgebase.egg-info/PKG-INFO
 onipkg_tutor_app_knowledgebase.egg-info/SOURCES.txt
 onipkg_tutor_app_knowledgebase.egg-info/dependency_links.txt

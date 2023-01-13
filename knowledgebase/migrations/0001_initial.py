@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import tutor.apps.contrib.validators
+import contrib.validators
 
 
 class Migration(migrations.Migration):
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('featured', models.BooleanField(default=False, verbose_name='Destaque')),
                 ('order', models.IntegerField(default=0, verbose_name='Ordem')),
                 ('slug', models.CharField(blank=True, help_text='Este campo é usado pra criar a url do post.', max_length=250, null=True, unique=True, verbose_name='Slug')),
-                ('featured_image', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='posts/covers/', validators=[tutor.apps.contrib.validators.validate_image_format, tutor.apps.contrib.validators.validate_image_max_300], verbose_name='Imagem Destaque')),
+                ('featured_image', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='posts/covers/', validators=[contrib.validators.validate_image_format, contrib.validators.validate_image_max_300], verbose_name='Imagem Destaque')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='knowledgebase.postcategory', verbose_name='Categoria')),
                 ('sub_categories', models.ManyToManyField(blank=True, related_name='post_subcategories', to='knowledgebase.PostCategory', verbose_name='Subcategorias')),
             ],

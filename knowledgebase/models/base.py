@@ -5,12 +5,12 @@ from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
-from tutor.apps.contrib.api_helpers import strip_tags
-from tutor.apps.contrib.models.base_model import BaseModel
-from tutor.apps.contrib.models.general_helpers import generic_get_file_path
-from tutor.apps.contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
+from contrib.api_helpers import strip_tags
+from contrib.models.base_model import BaseModel
+from contrib.models.general_helpers import generic_get_file_path
+from contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
     validate_document_format
-from tutor.apps.knowledgebase.utils.cons import POST_FROM_MAIL
+from knowledgebase.utils.cons import POST_FROM_MAIL
 
 
 def post_image_directory(instance, filename) -> str:
@@ -357,11 +357,12 @@ class SectionFile(BaseModel):
 def send_mail_after_save(sender, instance, using, **kwargs):
     # caso seja um post_save de criação podemos realizar o envio do email
     if kwargs.get('created', False):
-        from tutor.apps.core.tasks import send_email
-        # params
-        subject = _('Novo Post')
-        plain_msg = _('Confira o post {} no blog.').format(instance.title)
-        from_mail = POST_FROM_MAIL
-        to_mail = get_user_model().get_all_emails_from_non_staff_users()
-        send_email.apply_async((subject, plain_msg, from_mail, to_mail), eta=timezone.now() + timezone.timedelta(
-            seconds=15))
+        pass
+        # from tutor.apps.core.tasks import send_email
+        # # params
+        # subject = _('Novo Post')
+        # plain_msg = _('Confira o post {} no blog.').format(instance.title)
+        # from_mail = POST_FROM_MAIL
+        # to_mail = get_user_model().get_all_emails_from_non_staff_users()
+        # send_email.apply_async((subject, plain_msg, from_mail, to_mail), eta=timezone.now() + timezone.timedelta(
+        #     seconds=15))
