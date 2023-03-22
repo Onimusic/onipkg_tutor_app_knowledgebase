@@ -1,2 +1,2 @@
 Django>=3.2
-onipkg-contrib==0.2
+onipkg-contrib>=0.7

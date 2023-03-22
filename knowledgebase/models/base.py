@@ -5,10 +5,10 @@ from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
-from contrib.api_helpers import strip_tags
-from contrib.models.base_model import BaseModel
-from contrib.models.general_helpers import generic_get_file_path
-from contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
+from onipkg_contrib.api_helpers import strip_tags
+from onipkg_contrib.models.base_model import BaseModel
+from onipkg_contrib.models.general_helpers import generic_get_file_path
+from onipkg_contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
     validate_document_format
 from knowledgebase.utils.cons import POST_FROM_MAIL
 

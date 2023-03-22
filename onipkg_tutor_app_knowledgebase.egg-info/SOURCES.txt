@@ -39,3 +39,6 @@ onipkg_tutor_app_knowledgebase.egg-info/SOURCES.txt
 onipkg_tutor_app_knowledgebase.egg-info/dependency_links.txt
 onipkg_tutor_app_knowledgebase.egg-info/requires.txt
 onipkg_tutor_app_knowledgebase.egg-info/top_level.txt
+scripts/__init__.py
+scripts/makemigrations.py
+scripts/mock_settings.py
