@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: onipkg-tutor-app-knowledgebase
-Version: 0.7
+Version: 0.8
 Summary: A Django app to modularize the Knowledgebase Tooltor app
 Home-page: https://www.example.com/
 Author: Daniel
