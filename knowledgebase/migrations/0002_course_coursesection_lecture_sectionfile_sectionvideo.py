@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created At')),
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
-                ('thumbnail', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='courses/thumbnails/', validators=[onipkg_contrib.validators.validate_image_format, contrib.validators.validate_image_max_300], verbose_name='Thumbnail do Curso')),
+                ('thumbnail', models.ImageField(blank=True, help_text='Dimensões: 960x540; Tam. Máx.: 300kb; Somente os formatos .jpeg, .jpg e .png são permitidos.', null=True, upload_to='courses/thumbnails/', validators=[onipkg_contrib.validators.validate_image_format, onipkg_contrib.validators.validate_image_max_300], verbose_name='Thumbnail do Curso')),
                 ('name', models.CharField(max_length=250, verbose_name='Nome do Curso')),
                 ('categories', models.CharField(choices=[('IG', 'Instagram'), ('FB', 'Facebook'), ('YT', 'Youtube'), ('DS', 'Dsps')], default='IG', max_length=2, verbose_name='Categoria')),
                 ('description', models.TextField(blank=True, verbose_name='Descrição')),
@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Created At')),
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
                 ('name', models.CharField(max_length=100, verbose_name='Título do Arquivo')),
-                ('file', models.FileField(blank=True, help_text='You can upload any documents you wish here', null=True, upload_to='courses/files', validators=[onipkg_contrib.validators.validate_file_max_10000, contrib.validators.validate_document_format], verbose_name='Arquivo')),
+                ('file', models.FileField(blank=True, help_text='You can upload any documents you wish here', null=True, upload_to='courses/files', validators=[onipkg_contrib.validators.validate_file_max_10000, onipkg_contrib.validators.validate_document_format], verbose_name='Arquivo')),
                 ('lecture', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='knowledgebase.lecture', verbose_name='Aula Relacionada')),
             ],
             options={

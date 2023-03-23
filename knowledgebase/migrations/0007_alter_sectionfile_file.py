@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sectionfile',
             name='file',
-            field=models.FileField(help_text='Ex.: Arquivos de atividades, PDFs, etc', upload_to=knowledgebase.models.base.lecture_file_thumbnail_directory, validators=[onipkg_contrib.validators.validate_file_max_10000, contrib.validators.validate_document_format], verbose_name='Arquivo'),
+            field=models.FileField(help_text='Ex.: Arquivos de atividades, PDFs, etc', upload_to=knowledgebase.models.base.lecture_file_thumbnail_directory, validators=[onipkg_contrib.validators.validate_file_max_10000, onipkg_contrib.validators.validate_document_format], verbose_name='Arquivo'),
         ),
     ]
