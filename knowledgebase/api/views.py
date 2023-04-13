@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-from oauth2_provider.views import ProtectedResourceView
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 
@@ -10,12 +9,6 @@ from knowledgebase.utils.api_helpers import StandardResultsSetPagination
 from knowledgebase.models import PostCategory, Post, SectionFile, SectionVideo, Lecture, \
     CourseSection, Course, Tutorial
 from ..utils.permissions import HasCourseReadPermission, HasTutorialReadPermission, HasBlogReadPermission
-
-
-class ApiEndpoint(ProtectedResourceView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello, OAuth2!')
-
 
 class PostCategoryList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, HasBlogReadPermission]
