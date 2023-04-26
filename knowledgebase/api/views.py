@@ -46,6 +46,22 @@ class TutorialRetrieve(generics.RetrieveAPIView):
     queryset = Tutorial.objects.all()
     serializer_class = TutorialSerializer
 
+    def retrieve(self, request, *args, **kwargs):
+        print('retrivarei')
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        from knowledgebase.models.base import UserTutorialRead
+        try:
+            print('cacarei')
+            UserTutorialRead.objects.get(tutorial=instance, user_id=request.user.id)
+            print('achei')
+        except UserTutorialRead.DoesNotExist:
+            print('num achei')
+            UserTutorialRead.objects.create(tutorial=instance, user_id=request.user.id)
+            print('criei')
+        print('retornarei')
+        return Response(serializer.data)
+
 
 class CourseList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, HasCourseReadPermission]

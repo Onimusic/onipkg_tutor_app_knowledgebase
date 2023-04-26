@@ -164,6 +164,11 @@ class Tutorial(BasePostModel):
         ordering = ['-created_at']
 
 
+class UserTutorialRead(BaseModel):
+    tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE)
+    user_id = models.PositiveIntegerField()
+
+
 class Course(BaseModel):
     class CourseCategories(models.TextChoices):
         INSTAGRAM = 'IG', _('Instagram')

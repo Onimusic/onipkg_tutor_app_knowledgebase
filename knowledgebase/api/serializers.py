@@ -45,6 +45,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField('%d/%m/%Y')
     updated_at = serializers.DateTimeField('%d/%m/%Y')
     preview = serializers.SerializerMethodField()
+    seen = serializers.SerializerMethodField()
 
     class Meta:
         model = Tutorial
@@ -64,10 +65,20 @@ class TutorialSerializer(serializers.ModelSerializer):
             'featured_image',
             'sub_categories',
             'get_sub_categories_display',
+            'seen',
         ]
 
     def get_preview(self, obj):
         return obj.get_description_preview()
+
+    def get_seen(self, obj):
+        request = self.context.get("request")
+        if request and hasattr(request, "user"):
+            user = request.user
+            from knowledgebase.models.base import UserTutorialRead
+            return UserTutorialRead.objects.filter(tutorial=obj.id, user_id=user.id).exists()
+        else:
+            return False
 
 
 class CourseSerializer(serializers.ModelSerializer):

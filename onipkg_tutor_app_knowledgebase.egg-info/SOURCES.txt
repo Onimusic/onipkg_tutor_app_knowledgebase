@@ -27,6 +27,7 @@ knowledgebase/migrations/0010_auto_20220217_0847.py
 knowledgebase/migrations/0011_alter_course_categories.py
 knowledgebase/migrations/0012_alter_course_categories.py
 knowledgebase/migrations/0013_auto_20220721_1647.py
+knowledgebase/migrations/0014_alter_course_categories_usertutorialread.py
 knowledgebase/migrations/__init__.py
 knowledgebase/models/__init__.py
 knowledgebase/models/base.py
@@ -39,6 +40,3 @@ onipkg_tutor_app_knowledgebase.egg-info/SOURCES.txt
 onipkg_tutor_app_knowledgebase.egg-info/dependency_links.txt
 onipkg_tutor_app_knowledgebase.egg-info/requires.txt
 onipkg_tutor_app_knowledgebase.egg-info/top_level.txt
-scripts/__init__.py
-scripts/makemigrations.py
-scripts/mock_settings.py
