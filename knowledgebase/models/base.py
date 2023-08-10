@@ -1,8 +1,7 @@
-from django.contrib.auth import get_user_model
+from django.utils.text import slugify
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from onipkg_contrib.api_helpers import strip_tags
@@ -10,7 +9,6 @@ from onipkg_contrib.models.base_model import BaseModel
 from onipkg_contrib.models.general_helpers import generic_get_file_path
 from onipkg_contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
     validate_document_format
-from knowledgebase.utils.cons import POST_FROM_MAIL
 
 
 def post_image_directory(instance, filename) -> str:
@@ -37,7 +35,7 @@ def course_thumbnail_directory(instance, filename) -> str:
     Returns:
         path pra imagem
     """
-    return generic_get_file_path(instance.id, 'courses/thumbnails', filename)
+    return generic_get_file_path(slugify(instance.name), 'courses/thumbnails', filename)
 
 
 def lecture_file_thumbnail_directory(instance, filename) -> str:
@@ -50,7 +48,7 @@ def lecture_file_thumbnail_directory(instance, filename) -> str:
     Returns:
         path pro arquivo
     """
-    return generic_get_file_path(instance.lecture.id, 'courses/files', filename)
+    return generic_get_file_path(slugify(instance.lecture.name), 'courses/files', filename)
 
 
 class BasePostModel(BaseModel):
