@@ -46,7 +46,7 @@ class TutorialForm(forms.ModelForm):
         ]
 
 
-@admin.register(Post)
+# @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """
     """
@@ -63,7 +63,7 @@ class PostAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
 
 
-@admin.register(Tutorial)
+# @admin.register(Tutorial)
 class TutorialAdmin(admin.ModelAdmin):
 
     """
@@ -81,7 +81,7 @@ class TutorialAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
 
 
-@admin.register(PostCategory)
+# @admin.register(PostCategory)
 class PostCategoryAdmin(admin.ModelAdmin):
     """
     """
@@ -156,7 +156,7 @@ class CourseAdmin(nested_admin.NestedModelAdmin):
     inlines = [CourseSectionInline, ]
 
 
-@admin.register(CourseSection)
+# @admin.register(CourseSection)
 class CourseSectionAdmin(admin.ModelAdmin):
     """
     """
@@ -170,7 +170,7 @@ class CourseSectionAdmin(admin.ModelAdmin):
     inlines = [LectureInline,]
 
 
-@admin.register(Lecture)
+# @admin.register(Lecture)
 class LectureAdmin(admin.ModelAdmin):
     """
     """
@@ -184,7 +184,7 @@ class LectureAdmin(admin.ModelAdmin):
     inlines = [SectionVideoInline, SectionFileInline]
 
 
-@admin.register(SectionVideo)
+# @admin.register(SectionVideo)
 class SectionVideoAdmin(admin.ModelAdmin):
     """
     """
@@ -200,7 +200,7 @@ class SectionVideoAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
 
 
-@admin.register(SectionFile)
+# @admin.register(SectionFile)
 class SectionFileAdmin(admin.ModelAdmin):
     """
     """
