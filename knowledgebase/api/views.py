@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from rest_framework import generics, permissions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from knowledgebase.api.serializers import PostCategorySerializer, \
     PostSerializer, SectionFileSerializer, SectionVideoSerializer, LectureSerializer, CourseSectionSerializer, \
@@ -40,7 +41,7 @@ class TutorialList(generics.ListAPIView):
     pagination_class = StandardResultsSetPagination
 
 
-class GetWordpressBlogPosts(generics.APIView):
+class GetWordpressBlogPosts(APIView):
     def get(self, request):
         import requests
 
