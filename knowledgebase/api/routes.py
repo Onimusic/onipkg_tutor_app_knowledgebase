@@ -2,12 +2,13 @@ from django.urls import path
 
 from .views import PostList, PostRetrieve, PostCategoryList, \
     CourseList, CourseRetrieve, CourseSectionList, CourseSectionRetrieve, LectureList, LectureRetrieve, \
-    SectionVideoList, SectionVideoRetrieve, SectionFileList, SectionFileRetrieve, TutorialList, TutorialRetrieve
+    SectionVideoList, SectionVideoRetrieve, SectionFileList, SectionFileRetrieve, TutorialList, TutorialRetrieve, \
+    GetWordpressBlogPosts
 
 router = [
     path('tutorials', TutorialList.as_view()),
     path('tutorials/<pk>', TutorialRetrieve.as_view()),
-    path('posts', PostList.as_view()),
+    path('posts', GetWordpressBlogPosts.as_view()),
     path('posts/<pk>', PostRetrieve.as_view()),
     path('post-categories', PostCategoryList.as_view()),
     path('courses', CourseList.as_view()),
