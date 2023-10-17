@@ -28,6 +28,7 @@ knowledgebase/migrations/0011_alter_course_categories.py
 knowledgebase/migrations/0012_alter_course_categories.py
 knowledgebase/migrations/0013_auto_20220721_1647.py
 knowledgebase/migrations/0014_alter_course_categories_usertutorialread.py
+knowledgebase/migrations/0015_course_thumbnail_landscape_alter_course_thumbnail.py
 knowledgebase/migrations/__init__.py
 knowledgebase/models/__init__.py
 knowledgebase/models/base.py

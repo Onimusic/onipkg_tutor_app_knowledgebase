@@ -2,3 +2,4 @@ Django>=3.2
 onipkg-contrib>=0.8
 django-nested-admin>=4.0.2
 django-ckeditor>=6.5.1
+djangorestframework>=3.14.0
