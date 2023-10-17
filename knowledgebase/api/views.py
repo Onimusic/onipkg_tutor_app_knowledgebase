@@ -58,6 +58,7 @@ class GetWordpressBlogPosts(APIView):
                 estimated_time = post.get('yoast_head_json').get('twitter_misc')['Est. tempo de leitura']
                 article_section = post.get('yoast_head_json').get('schema').get('@graph')[0].get('articleSection')[0]
                 content_html = post.get('content').get('rendered')
+                link = post.get('link')
 
                 post_dict = {
                     'title': title,
@@ -67,7 +68,8 @@ class GetWordpressBlogPosts(APIView):
                     'type': type,
                     'content': content_html,
                     'estimated_time': estimated_time,
-                    'article_section': article_section
+                    'article_section': article_section,
+                    'link': link.replace('\\', '')+'?vm=mobileapp'
                 }
                 results.append(post_dict)
             return Response(results)

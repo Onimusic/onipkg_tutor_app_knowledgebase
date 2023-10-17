@@ -8,7 +8,7 @@ from onipkg_contrib.api_helpers import strip_tags
 from onipkg_contrib.models.base_model import BaseModel
 from onipkg_contrib.models.general_helpers import generic_get_file_path
 from onipkg_contrib.validators import validate_image_format, validate_image_max_300, validate_file_max_10000, \
-    validate_document_format
+    validate_document_format, validate_file_max_5000
 
 
 def post_image_directory(instance, filename) -> str:
@@ -178,10 +178,14 @@ class Course(BaseModel):
         COPYRIGHT = 'CP', _('Copyright')
         MUSIC_MARKETING = 'MM', _('Music Marketing')
 
-    thumbnail = models.ImageField(verbose_name=_('Thumbnail do Curso'), upload_to=course_thumbnail_directory,
-                                  validators=[validate_image_format, validate_image_max_300],
-                                  help_text=_('Dimensões') + ': 960x540; ' + _('Tam. Máx.') + ': 300kb; ' + _(
+    thumbnail = models.ImageField(verbose_name=_('Thumbnail Quadrada'), upload_to=course_thumbnail_directory,
+                                  validators=[validate_image_format, validate_file_max_5000],
+                                  help_text=_('Dimensões') + ': 1280x1280; ' + _('Tam. Máx.') + ': 5mb; ' + _(
                                       'Somente os formatos .jpeg, .jpg e .png são permitidos.'))
+    thumbnail_landscape = models.ImageField(verbose_name=_('Thumbnail Paisagem'), upload_to=course_thumbnail_directory,
+                                  validators=[validate_image_format, validate_file_max_5000],
+                                  help_text=_('Dimensões') + ': 1080x566; ' + _('Tam. Máx.') + ': 5mb; ' + _(
+                                      'Somente os formatos .jpeg, .jpg e .png são permitidos.'), null=True, blank=True)
     name = models.CharField(verbose_name=_('Nome do Curso'), max_length=250)
     categories = models.CharField(verbose_name=_('Categoria'), choices=CourseCategories.choices,
                                   default=CourseCategories.INSTAGRAM, max_length=2)

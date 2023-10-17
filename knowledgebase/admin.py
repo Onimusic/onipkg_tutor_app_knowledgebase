@@ -147,6 +147,7 @@ class CourseAdmin(nested_admin.NestedModelAdmin):
     """
     fields = [
         'thumbnail',
+        'thumbnail_landscape',
         'name',
         'categories',
         'description',
