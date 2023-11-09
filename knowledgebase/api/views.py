@@ -108,8 +108,7 @@ class CourseList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
-        category = request.query_params.get('category', None)
-        if category:
+        if category := request.query_params.get('category', None):
             queryset = queryset.filter(categories=category)
 
         page = self.paginate_queryset(queryset)
@@ -135,8 +134,7 @@ class CourseSectionList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
-        course = request.query_params.get('course_id', None)
-        if course:
+        if course := request.query_params.get('course_id', None):
             queryset = queryset.filter(course_id=course)
 
         page = self.paginate_queryset(queryset)
@@ -162,8 +160,7 @@ class LectureList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         course = request.query_params.get('course_id', None)
-        section = request.query_params.get('section_id', None)
-        if section:
+        if section := request.query_params.get('section_id', None):
             queryset = queryset.filter(section_id=section)
         elif course:
             queryset = queryset.filter(section__course_id=course)
@@ -192,8 +189,7 @@ class SectionVideoList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
-        lecture = request.query_params.get('lecture_id', None)
-        if lecture:
+        if lecture := request.query_params.get('lecture_id', None):
             queryset = queryset.filter(lecture_id=lecture)
 
         page = self.paginate_queryset(queryset)
@@ -220,8 +216,7 @@ class SectionFileList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
-        lecture = request.query_params.get('lecture_id', None)
-        if lecture:
+        if lecture := request.query_params.get('lecture_id', None):
             queryset = queryset.filter(lecture_id=lecture)
 
         page = self.paginate_queryset(queryset)

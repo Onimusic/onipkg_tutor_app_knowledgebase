@@ -362,9 +362,7 @@ class SectionFile(BaseModel):
 
 @receiver(post_save, sender=Post)
 def send_mail_after_save(sender, instance, using, **kwargs):
-    # caso seja um post_save de criação podemos realizar o envio do email
-    if kwargs.get('created', False):
-        pass
+    pass
         # from tutor.apps.core.tasks import send_email
         # # params
         # subject = _('Novo Post')
