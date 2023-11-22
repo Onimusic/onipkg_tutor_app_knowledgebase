@@ -53,10 +53,11 @@ class GetWordpressBlogPosts(APIView):
                 title = post.get('title').get('rendered')
                 description = post.get('yoast_head_json').get('og_description')
                 date = post.get('date')
-                og_image_url = post.get('yoast_head_json').get('og_image')[0]['url']
+                og_image_url = post.get('yoast_head_json').get('og_image', [{}])[0].get('url', '')
                 type = post.get('type')
-                estimated_time = post.get('yoast_head_json').get('twitter_misc')['Est. tempo de leitura']
-                article_section = post.get('yoast_head_json').get('schema').get('@graph')[0].get('articleSection')[0]
+                estimated_time = post.get('yoast_head_json').get('twitter_misc').get('Est. tempo de leitura')
+                article_section = \
+                post.get('yoast_head_json').get('schema').get('@graph', [{}])[0].get('articleSection', ['Geral'])[0]
                 content_html = post.get('content').get('rendered')
                 link = post.get('link')
 
